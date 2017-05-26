@@ -1,1 +1,21 @@
 <%= current_user.id %>
+
+<% current_user.photo.each do |photo| %>
+<td><%= photo.id %></td>
+
+<td><%= photo.caption %></td>
+
+
+<td><%= photo.image %></td>
+<td><img src= "<%= photo.image %>"></td>
+<% end %>
+
+
+
+
+<!-- <% @users.each do |user| %>
+<tr>
+  <td><%= user.email %></td>
+  <td><%= user.id %></td>
+  </tr>
+<% end %> -->
