@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   get "/users", :controller => "users", :action => "index"
   get "/users/:id", :controller => "users", :action => "show"
+
+  # MY LIKES
+  get "/my_likes", :controller => "mylikes", :action => "show"
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
@@ -35,6 +38,8 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_like/:id", :controller => "likes", :action => "destroy"
+
+
   #------------------------------
 
   # Routes for the Photo resource:

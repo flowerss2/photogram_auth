@@ -38,6 +38,11 @@ class LikesController < ApplicationController
     render("likes/edit.html.erb")
   end
 
+def currentuser
+
+end
+
+
   def update
     @like = Like.find(params[:id])
 
