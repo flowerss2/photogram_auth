@@ -1,9 +1,12 @@
 class UsersController < ApplicationController
 
-  def show
+  def index
 
     @users = User.all
-    render "show"
   end
+
+def show
+  @user = current_user
+end
 
 end
