@@ -1,0 +1,12 @@
+<%= current_user.id %>
+
+<% current_user.like.each do |like| %>
+<td><%= like.id %></td>
+
+<td><%= like.photo.id %></td>
+
+<td><%= like.user_id %></td>
+
+<td><%= like.photo_id %></td>
+
+<% end %>
