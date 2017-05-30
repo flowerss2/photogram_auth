@@ -1,4 +1,4 @@
 class Photo < ApplicationRecord
-has_many :comment
+has_many :comments
   belongs_to :user
 end

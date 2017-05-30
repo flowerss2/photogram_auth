@@ -21,6 +21,10 @@
         <div class="media-body"><img src= "<%= photo.image %>"></div>
         <td><%= photo.user.username %></td>
         <td><%= time_ago_in_words(photo.updated_at) %> ago</td>
+        <% @comment.each do |comment| %>
+        <td><%= comment.body %></td>
+        <td><%= comment.user.username %></td>
+        <% end %>
         <td><%  if current_user.id == photo.user_id %>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/my_likes/<%= photo.id %>" class="btn btn-outline-success"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
