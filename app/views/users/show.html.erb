@@ -1,5 +1,8 @@
-<%= current_user.id %>
+<div class="container">
+  <%= current_user.id %>
+</div>
 
+<div class="container">
 <% current_user.photo.each do |photo| %>
 <td><%= photo.id %></td>
 
@@ -9,7 +12,7 @@
 <td><%= photo.image %></td>
 <td><img src= "<%= photo.image %>"></td>
 <% end %>
-
+</div>
 
 
 

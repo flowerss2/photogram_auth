@@ -25,6 +25,26 @@
         <td><%= comment.body %></td>
         <td><%= comment.user.username %></td>
         <% end %>
+      <td>
+        <form action="/create_comment" method="post">
+              <!-- Hidden input for authenticity token to protect from forgery -->
+              <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+              <!-- Label and input for year -->
+              <div class="form-group">
+                <label for="comment" class="control-label">
+                  Add a Comment
+                </label>
+                <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
+                <input name="photo_id" type="hidden" value="<%= photo.id %>">
+                <input name="user_id" type="hidden" value="<%= current_user.id %>">
+
+              </div>
+              <button class="btn btn-success">
+                <i class="fa fa-commenting-o" aria-hidden="true"></i>
+              </button>
+          </form>
+      </td>
         <td><%  if current_user.id == photo.user_id %>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/my_likes/<%= photo.id %>" class="btn btn-outline-success"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
