@@ -1,3 +1,5 @@
+<i class="fa fa-heart-o" aria-hidden="true"></i>
+<i class="fa fa-heart" aria-hidden="true"></i>
 <div class="page-header">
   <h1>
 
@@ -17,15 +19,19 @@
 
       <% @photos.each do |photo| %>
       <tr>
-        <div class="panel"><%= photo.caption %></div>
-        <div class="media-body"><img src= "<%= photo.image %>"></div>
-        <td><%= photo.user.username %></td>
-        <td><%= time_ago_in_words(photo.updated_at) %> ago</td>
-        <% @comment.each do |comment| %>
-        <td><%= comment.body %></td>
-        <td><%= comment.user.username %></td>
+        <div class="panel"><%= photo.caption %>
+        <div class="media-body"><img src= "<%= photo.image %>" height="480"></div>
+        <div><h3><%= photo.user.username %>'s photo</h3>
+        <small><%= time_ago_in_words(photo.updated_at) %> ago</small></div>
+        <% photo.comments.each do |comment| %>
+        <div class="panel panel-default">
+              <div class="panel-heading">
+        <strong><%= comment.user.username %></strong>
+              </div>
+        <div class="panel-body">
+                <%= comment.body %></div></div>
         <% end %>
-      <td>
+      <div class="panel">
         <form action="/create_comment" method="post">
               <!-- Hidden input for authenticity token to protect from forgery -->
               <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
@@ -44,7 +50,7 @@
                 <i class="fa fa-commenting-o" aria-hidden="true"></i>
               </button>
           </form>
-      </td>
+      </div>
         <td><%  if current_user.id == photo.user_id %>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/my_likes/<%= photo.id %>" class="btn btn-outline-success"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
@@ -53,7 +59,7 @@
           <% else %>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/my_likes/<%= photo.id %>" class="btn btn-outline-success"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-          <% end %>
+          <% end %></div>
 
         </td>
       </tr>
