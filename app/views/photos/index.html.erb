@@ -44,11 +44,11 @@
                 <input type="text" id="comment" name="body" placeholder="Add a comment..." class="form-control" value="<%= @newcomment.body %>">
                 <input name="photo_id" type="hidden" value="<%= photo.id %>">
                 <input name="user_id" type="hidden" value="<%= current_user.id %>">
-
+                      <button class="btn btn-success">
+                          <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                      </button>
               </div>
-              <button class="btn btn-success">
-                <i class="fa fa-commenting-o" aria-hidden="true"></i>
-              </button>
+
           </form>
       </div>
         <td><%  if current_user.id == photo.user_id %>
